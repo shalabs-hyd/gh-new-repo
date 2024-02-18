@@ -1,5 +1,5 @@
-name: FirstWorkflow
-run-name: FirstWorkFlow
+name: 01 - FirstWorkflow
+run-name: 01 - FirstWorkFlow
 
 on: [push, status]
 

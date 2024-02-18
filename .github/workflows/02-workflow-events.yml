@@ -1,5 +1,5 @@
 name: 02 - WorkFlow Events
-run-name: WorkFlowEvents
+run-name: 02 - WorkFlowEvents
 
 on: push
 

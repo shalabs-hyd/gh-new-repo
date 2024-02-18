@@ -1,0 +1,14 @@
+name: 03 - Using Custom Actions
+run-name: 03 - Using Custom Actions
+on: push
+
+jobs:
+  node-20-release:
+    runs-on: ubuntu-latest
+    steps: 
+     - name: Checkout Code
+       uses: actions/checkout@v4
+
+     - name: Print the folders
+       run: ls -lrt
+     

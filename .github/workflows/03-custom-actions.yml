@@ -11,4 +11,14 @@ jobs:
 
      - name: Print the folders
        run: ls -lrt
+
+     - name: Setup Node
+       uses: actions/setup-node@v3
+       with:
+        node-version: '20.x'
+
+     - name: Install dependencies
+       working-directory: 04-using-actions/react-app
+       run: npm ci
+    
      

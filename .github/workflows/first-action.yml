@@ -1,7 +1,7 @@
 name: FirstWorkflow
 run-name: FirstWorkFlow
 
-on: push
+on: [push, status]
 
 jobs:
     FirstJob:

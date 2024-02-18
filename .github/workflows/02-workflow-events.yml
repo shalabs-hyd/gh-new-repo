@@ -1,7 +1,11 @@
 name: 02 - WorkFlow Events
 run-name: 02 - WorkFlowEvents
 
-on: push
+on:
+  push:
+  workflow_dispatch: 
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   WorkFlowEvents:

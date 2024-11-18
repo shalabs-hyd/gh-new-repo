@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+    name: my-pod-arg03
+    labels:
+        cost: labs
+spec:
+    restartPolicy: Never
+    containers:
+        - name: ubuntu-util
+          image: ubuntu
+          args: 
+            - 'date'
+
+
+
+
+
+          # command: ["/bin/sh","-c"]
+          # args:
+          #     - >
+          #       echo "$(date) : Start the log";
+          #       echo " ";
+          #       ls -lrt /;
+          #       echo " ";
+          #       df -h;
+          #       echo "$(date) : done"
+

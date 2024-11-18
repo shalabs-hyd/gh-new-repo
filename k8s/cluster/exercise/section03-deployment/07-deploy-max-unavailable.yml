@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: deploy-munav
+  annotations:
+    kubernetes.io/change-cause: "Deployment with maxUnavailable : V3"
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: shalabs-webtier
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 50%
+  template:
+    metadata:
+      labels:
+        app: shalabs-webtier
+    spec:
+      containers:
+        - name: webtier
+          image: vinsdocker/k8s-app:v3
+          ports:
+            - name: "httpd-port"
+              containerPort: 80

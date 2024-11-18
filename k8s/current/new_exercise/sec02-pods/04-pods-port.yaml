@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-front
+  labels:
+    cost-center: shalabs
+    tier: front-end
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - name: 'web-port'
+          containerPort: 80
+          protocol: TCP

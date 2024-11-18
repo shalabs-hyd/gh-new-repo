@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sha-labs-pod01
+  labels:
+    environment: test
+    owner: shalabs
+spec:
+  containers:
+    - name: sha-labs-nginx
+      image: nginx:latest

@@ -1,0 +1,14 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: my-pod-cmd
+  labels:
+    cc: labs
+spec:
+  containers:
+    - name: entrypoint
+      image: vinsdocker/k8s-entrypoint
+      command:
+        - 'date'
+  restartPolicy: Never
+  terminationGracePeriodSeconds: 1

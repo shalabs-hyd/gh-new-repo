@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-pod-nginx
+  labels:
+    project: shalabs
+    env: sandpit
+spec:
+  containers:
+    - name: first-pod-nginx
+      image: nginx:alpine

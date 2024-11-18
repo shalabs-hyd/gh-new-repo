@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-surge
+  annotations:
+    kubernetes.io/change-cause: "RollingUpdate deployment: V2"
+spec:
+  replicas: 2
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 100%
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: web-frontend
+          image: vinsdocker/k8s-app:v2
+          ports:
+            - name: "http-port"
+              containerPort: 80

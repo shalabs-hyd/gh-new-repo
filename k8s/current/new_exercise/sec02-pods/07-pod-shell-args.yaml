@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-sha03
+  labels:
+    cc: labs
+spec:
+  restartPolicy: Never
+  containers:
+    - name: ubuntu
+      image: ubuntu
+      args:
+        - '/bin/sh'
+        - '-c'
+        - 'echo $(date);echo;echo $PATH;echo;echo $(date)'

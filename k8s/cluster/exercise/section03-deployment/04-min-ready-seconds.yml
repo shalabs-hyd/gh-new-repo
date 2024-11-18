@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sha-minstart
+  annotations:
+   kubernetes.io/change-cause: "Deploying version with minReadySeconds: v1 with alpine image"
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+    type: RollingUpdate
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: time-test
+  replicas: 3
+  template:
+    metadata:
+
+      labels:
+        app: time-test
+    spec:
+      containers:
+        - name: nginx-test
+          image: nginx:alpine
+          ports:
+            - name: "http-port"
+              containerPort: 80

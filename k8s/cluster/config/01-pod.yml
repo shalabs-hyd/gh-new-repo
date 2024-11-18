@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod 
+metadata: 
+  name: webfront
+  labels:
+    application: testapp
+    environment: test
+    project: shalabs
+    component: frontend
+spec:
+  containers:
+    - name: webfront-nginx
+      image: nginx:alpine

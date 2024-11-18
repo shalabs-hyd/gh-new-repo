@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sha-pod-fail09
+  labels:
+    environment: test
+    owner: shalabs
+spec:
+  containers:
+    - name: failed-container09
+      image: vinsdocker/k8s-failing-container

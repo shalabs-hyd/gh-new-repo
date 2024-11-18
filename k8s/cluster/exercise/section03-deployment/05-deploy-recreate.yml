@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: sha-dep-recreate
+  annotations: 
+    kubernetes.io/change-cause: "Recreate Deployment : V2"
+spec:
+  minReadySeconds: 10
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: web-front
+          image: vinsdocker/k8s-app:v2
+          ports:
+            - name: "httpd-port"
+              containerPort: 80

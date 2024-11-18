@@ -1,0 +1,29 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: sha-labs01
+  annotations:
+    kubernetes.io/change-cause: "Shalabs Deployment V01"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels: 
+        app: my-app
+    spec:
+      containers:
+        - name: cart-service
+          image: vinsdocker/k8s-app:v1
+          ports:
+           - name: "web-port"
+             containerPort: 80
+          

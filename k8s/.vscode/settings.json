@@ -1,0 +1,6 @@
+{
+    "kubescape.scanOnSave": "none",
+    "yaml.schemas": {
+        "kubernetes://schema/apps/v1%40deployment": "file:///project/k8s/k8s-hands-on/Chapter%209%20Deployments/pods.yaml"
+    }
+}

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: sha-prd-dep
+  annotations:
+    kubernetes.io/change-cause: "Deploying sha-labs app version 03"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cart-service
+  template:
+    metadata:
+     labels:
+      app: cart-service
+    spec:
+      containers:
+       - name: cart-pod
+         image: vinsdocker/k8s-app:v3
+         ports:
+          - name: "app-port"
+            containerPort: 80

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod 
+metadata: 
+  name: failing-pod
+  labels:
+    project: shalabs
+    environment: sandpit
+spec:
+  containers:
+    - name: failing-container
+      image: vinsdocker/k8s-failing-container

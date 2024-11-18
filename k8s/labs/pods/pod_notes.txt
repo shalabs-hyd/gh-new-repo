@@ -1,0 +1,106 @@
+1] Old way of creating pods in a "imperative way" is
+
+## kubectl run firstpod --generator=run-pod/v1 --image=coolgourav147/nginx-custom
+
+Generators are now deprecated
+
+2] In the newer k8s versions use
+
+## kubectl run firstpod --image=coolgourav147/nginx-custom
+
+cloud_user@k8s-control:~$ kubectl run firstpod --image=coolgourav147/nginx-custom
+pod/firstpod created
+cloud_user@k8s-control:~$
+
+https://kubernetes.io/docs/reference/kubectl/conventions
+
+
+3] To get a list of all resources with there short names and API versions use
+
+cloud_user@k8s-control:~$ kubectl api-resources
+
+To print the once with shortnames
+
+cloud_user@k8s-control:~$ kubectl api-resources --sort-by=name | awk 'NF == 5 { print }'
+
+
+****
+4] kubectl explain
+
+It is a very useful command to get information on the kubectl supported objects
+
+cloud_user@k8s-control:~$ kubectl help explain
+List the fields for supported resources.
+
+ This command describes the fields associated with each supported API resource. Fields are identified via a simple
+JSONPath identifier:
+
+  <type>.<fieldName>[.<fieldName>]
+
+ Add the --recursive flag to display all of the fields at once without descriptions. Information about each field is
+retrieved from the server in OpenAPI format.
+
+Use "kubectl api-resources" for a complete list of supported resources.
+
+
+Example usage
+
+To explain what pods are, run 
+
+cloud_user@k8s-control:~$ kubectl explain po
+KIND:     Pod
+VERSION:  v1
+
+DESCRIPTION:
+     Pod is a collection of containers that can run on a host. This resource is
+     created by clients and scheduled onto hosts.
+
+FIELDS:
+
+
+5] kubectl describe pods podname
+
+Gives extensive info of pods
+
+Look at the below events
+
+
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  26m   default-scheduler  Successfully assigned default/firstpod to k8s-worker01.shalabs.in
+  Normal  Pulling    26m   kubelet            Pulling image "coolgourav147/nginx-custom"
+  Normal  Pulled     26m   kubelet            Successfully pulled image "coolgourav147/nginx-custom" in 1.476577515s
+  Normal  Created    26m   kubelet            Created container firstpod
+  Normal  Started    26m   kubelet            Started container firstpod
+
+
+Here the pod was assigned to a node by "default-scheduler" and kubelet on the node pulled image and created the pod
+
+6]  to check running containers in a cotainerd runtime, use the following
+
+cloud_user@k8s-worker01:~$ sudo ctr -n k8s.io containers ls
+
+to kill the container
+
+Get the process list
+
+cloud_user@k8s-worker01:~$ sudo ctr -n k8s.io tasks ls
+TASK                                                                PID      STATUS
+590697f157a7cdb7653fb0164813feb94a8dbde655d28cd4f2ed7b79f9165c2b    2263     RUNNING
+af02f772b544184f6fadbcf190693f5541bce0dd71742f868016e8e37630e5b3    2734     RUNNING
+636496b84e94adee5bbc65095ac3aa99d28e9c012f00142e03a93f21575db01b    6672     RUNNING
+107b78ae0a9e915faf446c83494a8580ad903a89714963160408e8a23245d92e    16663    RUNNING
+d9cf6b50b69418553933db90798a09375979d8e81af127c787f96c5d4da084e8    2204     RUNNING
+b567903a8071147a45a919be5cd68f72943cbcfab0d311ffda9976a0bd495d58    2197     RUNNING
+
+
+The get the container list
+
+cloud_user@k8s-worker01:~$ sudo ctr -n k8s.io container ls | grep gourav
+107b78ae0a9e915faf446c83494a8580ad903a89714963160408e8a23245d92e    docker.io/coolgourav147/nginx-custom:latest    io.containerd.runc.v2
+
+
+Kill the process
+
+cloud_user@k8s-worker01:~$ sudo ctr -n k8s.io tasks kill 107b78ae0a9e915faf446c83494a8580ad903a89714963160408e8a23245d92e

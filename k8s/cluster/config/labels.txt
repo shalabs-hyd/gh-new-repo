@@ -1,0 +1,2 @@
+kubectl label node shalabs-cluster-worker1 node-role.kubernetes.io/worker-node01=worker-node01
+kubectl label node shalabs-cluster-worker2 node-role.kubernetes.io/worker-node02=worker-node02

@@ -1,0 +1,321 @@
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[zig]
+symbol = " "
+
+[kubernetes]
+symbol = '☸ '
+style = 'cyan bold'
+format = '[⛵ -> $symbol $context( \($namespace\))]($style) in '
+disabled = false
+#contexts = [
+
+# https://i.sstatic.net/KTSQa.png
+
+#  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+#]
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-central-1:142904583725:cluster/eks-production"
+style = "bold blink 9"
+context_alias = "eaf-eks-production-eu-central"
+symbol = '🧙 @ ☸ '
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:us-east-1:142904583725:cluster/eks-production-us-east-1"
+style = "bold blink 9"
+context_alias = "eaf-eks-production-us-east"
+symbol = '🧙 @ ☸ '
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-central-1:474832367253:cluster/eks-tooling"
+style = "bold  8"
+context_alias = "eaf-eks-tooling-eu-central"
+symbol = '🧙 @ ☸ '
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-central-1:474832367253:cluster/eks-tooling"
+style = "bold  8"
+context_alias = "eaf-eks-tooling-eu-central"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:us-east-1:089067030054:cluster/eks-sandpit"
+style = "bold  10"
+context_alias = "eaf-eks-sandpit-us-east"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-central-1:089067030054:cluster/eks-sandpit-eu-central-1"
+style = "bold  10"
+context_alias = "eaf-eks-sandpit-eu-central"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:us-east-1:131523299080:cluster/eks-test-us-east-1"
+style = "bold  3"
+context_alias = "eaf-eks-test-us-east"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-central-1:131523299080:cluster/eks-test"
+style = "bold  3"
+context_alias = "eaf-eks-test-eu-central-1"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-central-1:894361363294:cluster/eks-dev-eu-central-1"
+style = "bold  27"
+context_alias = "eaf-eks-dev-eu-central-1"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:us-east-1:894361363294:cluster/eks-dev-us-east-1"
+style = "bold  27"
+context_alias = "eaf-eks-dev-us-east-1"
+
+
+[[kubernetes.contexts]]
+context_pattern = "kind-shalabs-cluster"
+style = "bg:bold bright-black fg:bold 148"
+context_alias = "kind-shalabs-cluster"
+
+
+# ~/.config/starship.toml
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'blink bold white'
+symbol = " 🅰"
+[aws.region_aliases]
+ap-southeast-2 = 'au'
+us-east-1 = 'va'
+[aws.profile_aliases]
+eaf-administrator-675047791819 = 'aft'
+eaf-administrator-474693318525 = 'car-acoaiops-development'
+eaf-administrator-471112646726 = 'car-acoaiops-production'
+eaf-administrator-127035187817 = 'car-acoaiops-sandpit'
+eaf-administrator-730335413369 = 'car-acoaiops-test'
+eaf-administrator-556353447917 = 'car-acoautomation-development'
+eaf-administrator-471112834153 = 'car-acoautomation-production'
+eaf-administrator-719634371594 = 'car-acoautomation-sandpit'
+eaf-administrator-381492203498 = 'car-acoautomation-test'
+eaf-administrator-533267078456 = 'car-asa-sandpit'
+eaf-administrator-080119030216 = 'car-bib-sandpit'
+eaf-administrator-024848447763 = 'car-databricks-development'
+eaf-administrator-025066273505 = 'car-databricks-sandpit'
+eaf-administrator-024848447505 = 'car-databricks-tooling'
+eaf-administrator-730335250840 = 'car-gap-sandpit'
+eaf-administrator-181755314177 = 'car-mfoo-development'
+eaf-administrator-371655702814 = 'car-mfoo-sandpit'
+eaf-administrator-533267369262 = 'car-opsinsight-sandpit'
+eaf-administrator-661537028880 = 'car-opsview-development'
+eaf-administrator-704463171300 = 'car-opsview-sandpit'
+eaf-administrator-858165505743 = 'car-splunk-development'
+eaf-administrator-644236367116 = 'car-splunk-production'
+eaf-administrator-131213109016 = 'car-splunk-sandpit'
+eaf-administrator-975050305591 = 'car-splunk-test'
+eaf-administrator-071823832626 = 'eaf-demo-sandpit'
+eaf-administrator-894361363294 = 'eks-development'
+eaf-administrator-142904583725 = 'eks-production'
+eaf-administrator-089067030054 = 'eks-sandpit'
+eaf-administrator-131523299080 = 'eks-test'
+eaf-administrator-474832367253 = 'eks-tooling'
+eaf-administrator-351387985233 = 'gadm-aiops-production'
+eaf-administrator-536720785143 = 'gadm-aiops-sandpit'
+eaf-administrator-560982839904 = 'gadm-aiops-test'
+eaf-administrator-448934264872 = 'gadm-apim-production'
+eaf-administrator-349862025187 = 'gadm-apim-sandpit'
+eaf-administrator-490020889349 = 'gadm-apim-test'
+eaf-administrator-339712982375 = 'gadm-botstudio-sandpit'
+eaf-administrator-905418257222 = 'gadm-cokenaou-production'
+eaf-administrator-381492304280 = 'gadm-cokenaou-test'
+eaf-administrator-017416178437 = 'gadm-commandtower-production'
+eaf-administrator-084672913038 = 'gadm-commandtower-sandpit'
+eaf-administrator-960635246653 = 'gadm-commandtower-test'
+eaf-administrator-381491955375 = 'gadm-genai-sandpit'
+eaf-administrator-260807992468 = 'gadm-ikon-production'
+eaf-administrator-653007420939 = 'gadm-ikon-sandpit'
+eaf-administrator-217910052792 = 'gadm-ikon-test'
+eaf-administrator-123006120782 = 'gadm-intellimap-production'
+eaf-administrator-010678009657 = 'gadm-intellimap-sandpit'
+eaf-administrator-431651533869 = 'gadm-intellimap-test'
+eaf-administrator-105523791800 = 'gadm-ods-production'
+eaf-administrator-171186227351 = 'gadm-ods-sandpit'
+eaf-administrator-158236370867 = 'gadm-ods-test'
+eaf-administrator-647725377658 = 'gadm-offlineintegration-production'
+eaf-administrator-584862162003 = 'gadm-offlineintegration-sandpit'
+eaf-administrator-742895184880 = 'gadm-offlineintegration-test'
+eaf-administrator-036821482335 = 'gadm-qualitygate-sandpit'
+eaf-administrator-799430210722 = 'gadm-rooca-production'
+eaf-administrator-217488605495 = 'gadm-rooca-sandpit'
+eaf-administrator-232896667016 = 'gadm-rooca-test'
+eaf-administrator-803966787949 = 'gadm-smartdispatcher-production'
+eaf-administrator-286241180101 = 'gadm-smartdispatcher-sandpit'
+eaf-administrator-393787275486 = 'gadm-smartdispatcher-test'
+eaf-administrator-651832913813 = 'gadm-tooling'
+eaf-administrator-071737082986 = 'gadm-uipath-production'
+eaf-administrator-732299078225 = 'gadm-uipath-sandpit'
+eaf-administrator-135220296776 = 'gadm-uipath-test'
+eaf-administrator-133469876432 = 'gadm-utility-production'
+eaf-administrator-834991606464 = 'gadm-utility-sandpit'
+eaf-administrator-326286756880 = 'gadm-utility-test'
+eaf-administrator-873590776601 = 'genesys-production'
+eaf-administrator-975050127153 = 'iad-raisecis-sandpit'
+eaf-administrator-283772699347 = 'iam-identity-center'
+eaf-administrator-471112730855 = 'icd-icyber-production'
+eaf-administrator-211125538660 = 'icd-icyber-sandpit'
+eaf-administrator-106839816545 = 'network'
+eaf-administrator-144797413208 = 'sharedservices'
+eaf-master-administrator-008045519125 = 'master'
